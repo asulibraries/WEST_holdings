@@ -9,8 +9,8 @@ For our commitment to services like WEST, we have to provide holding records. Un
 west1_extract_MMS_IDs.py <file.mrc> <apiKey>
 ```
 Where:
-    file.mrc   --    Binary MARC21 export of items
-    APIKEY     --    Your API key for accessing Alma REST APIs
+-    file.mrc   --    Binary MARC21 export of items
+-    APIKEY     --    Your API key for accessing Alma REST APIs
 
 ### Generate and Export a Set ###
 1. Create a set in Alma of the desired items.
