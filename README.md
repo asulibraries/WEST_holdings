@@ -2,9 +2,21 @@
 This script has been modified for ASU specifics. Thanks to Kate Deibel for the excellent code.
 
 ## Background
-For our commitment to services like WEST, we have to provide holding records. Unfortunately, there is no direct way to export holding records from Alma. Using ideas from [Bill Kelm's approach](https://github.com/hatfieldlibrary/alma-holdings-records), this repository contains a series of scripts for extracting holding records via the Alma REST APIs.
+For our commitment to services like WEST, we have to provide holding records. Unfortunately, there is no direct way to export holding records from Alma. Using ideas from [Bill Kelm's approach](https://github.com/hatfieldlibrary/alma-holdings-records), this repository contains a script for extracting holding records via the Alma REST APIs.
 
-## Usage ##
+## Requirements
+- Python3 (3.6+)
+- Alma API access with Bib record read privileges
+
+### Libraries:
+- Requests
+- asyncIO
+- aIOhttp
+- TQDM
+- PyMarc
+- lxml
+
+## Usage
 ```
 west1_extract_MMS_IDs.py <file.mrc> <apiKey>
 ```
@@ -12,11 +24,11 @@ Where:
 -    file.mrc   --    Binary MARC21 export of items
 -    APIKEY     --    Your API key for accessing Alma REST APIs
 
-### Generate and Export a Set ###
+### Generate and Export a Set
 1. Create a set in Alma of the desired items.
 2. Export said set using the *Export Bibliographic Records* job to generate a MARC21 file (holdings information does not need to be added).
 
-### Extraction and API Calls ###
+### Extraction and API Calls
 To get the holding records, both an MMS ID and a Holding ID are needed for the [Retrieve Holdings Record](https://developers.exlibrisgroup.com/alma/apis/bibs/) web service. To get these two IDs, the following is performed:
 
 1. Extract the MMS ID from the '001' fields in the exported MARC data
